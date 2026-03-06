@@ -80,11 +80,13 @@ collision_layer = 8
 script = ExtResource("1_h1t07")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=976141492]
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_jw04l")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1593660407]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_53380")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
