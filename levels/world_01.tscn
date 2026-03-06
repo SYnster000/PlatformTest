@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cpilnnspwp306" path="res://prefabs/coin.tscn" id="10_0heyt"]
 [ext_resource type="PackedScene" uid="uid://uix3hn38saia" path="res://prefabs/moving_platform.tscn" id="10_tii1u"]
 [ext_resource type="PackedScene" uid="uid://cckc75j7tbhh6" path="res://actors/enemy.tscn" id="12_dp75u"]
+[ext_resource type="Texture2D" uid="uid://b6d84d45u3dvs" path="res://assets/mini_ui_buttons/ui_buttons_arrow_left_NORMAL.png" id="14_dgy4p"]
+[ext_resource type="Texture2D" uid="uid://c6k8ftkbext6y" path="res://assets/mini_ui_buttons/ui_buttons_arrow_left_PRESSED.png" id="15_4qpc8"]
+[ext_resource type="Texture2D" uid="uid://dodmeds63n8n0" path="res://assets/mini_ui_buttons/ui_buttons_arrow_right_NORMAL.png" id="16_gin1p"]
+[ext_resource type="Texture2D" uid="uid://bhkiv4do3cjs0" path="res://assets/mini_ui_buttons/ui_buttons_arrow_right_PRESSED.png" id="17_athp7"]
+[ext_resource type="Texture2D" uid="uid://ckvnenp6klk5n" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_NORMAL.png" id="18_dl4q8"]
+[ext_resource type="Texture2D" uid="uid://im8hbec072ga" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_PRESSED.png" id="19_8drao"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tii1u"]
 shader = ExtResource("3_yso3o")
@@ -311,6 +317,9 @@ position = Vector2(496, 280)
 [node name="enemy3" parent="." unique_id=1086301916 instance=ExtResource("12_dp75u")]
 position = Vector2(568, 280)
 
+[node name="enemy4" parent="." unique_id=1328326519 instance=ExtResource("12_dp75u")]
+position = Vector2(456, 248)
+
 [node name="camera" type="Camera2D" parent="." unique_id=1091356481]
 zoom = Vector2(2, 2)
 limit_left = -39
@@ -321,3 +330,29 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.3
 editor_draw_drag_margin = true
+
+[node name="controls" type="CanvasLayer" parent="." unique_id=571513093]
+
+[node name="left" type="TouchScreenButton" parent="controls" unique_id=1697433424]
+position = Vector2(32, 608)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("14_dgy4p")
+texture_pressed = ExtResource("15_4qpc8")
+action = "left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="controls" unique_id=1188225622]
+position = Vector2(152, 608)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("16_gin1p")
+texture_pressed = ExtResource("17_athp7")
+action = "right"
+visibility_mode = 1
+
+[node name="jump" type="TouchScreenButton" parent="controls" unique_id=474577753]
+position = Vector2(1144, 608)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("18_dl4q8")
+texture_pressed = ExtResource("19_8drao")
+action = "jump"
+visibility_mode = 1

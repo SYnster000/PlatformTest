@@ -91,6 +91,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=624703575]
+visible = false
 position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_esgq3")
 
@@ -99,9 +100,22 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="collision" type="CollisionShape2D" parent="hurtbox" unique_id=1741083642]
+visible = false
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_kjkj0")
 
 [node name="remote" type="RemoteTransform2D" parent="." unique_id=791281420]
+
+[node name="ray_right" type="RayCast2D" parent="." unique_id=40822027]
+position = Vector2(8, -6)
+target_position = Vector2(4, 0)
+collision_mask = 4
+hit_from_inside = true
+
+[node name="ray_left" type="RayCast2D" parent="." unique_id=640290567]
+position = Vector2(-8, -6)
+target_position = Vector2(-4, 0)
+collision_mask = 4
+hit_from_inside = true
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
