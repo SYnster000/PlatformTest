@@ -16,24 +16,38 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_FORCE
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
-		animation.scale.x = direction
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 	
-	#controle de animações
+
+#region CONTROLE DE ANIMAÇÕES
+
+	
+	animation.speed_scale = 1
+	
+	
+	if direction > 0:
+		animation.scale.x = 1
+	elif direction < 0:
+		animation.scale.x = -1
+		
+	
 	if is_jumping:
 		animation.play("jump")
 	elif direction:
 		animation.play("run")
+		animation.speed_scale = abs(direction)
 	else:
 		animation.play("idle")
+#endregion
 	
