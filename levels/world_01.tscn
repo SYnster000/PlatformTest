@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dl3q660mrux6t"]
 
 [ext_resource type="Texture2D" uid="uid://53oj0031im0o" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_naeyk"]
+[ext_resource type="Script" uid="uid://btfdeg4y6ndqt" path="res://scripts/world_01.gd" id="1_samdc"]
 [ext_resource type="Texture2D" uid="uid://cg6ht0hjpruwd" path="res://assets/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_o58wf"]
 [ext_resource type="PackedScene" uid="uid://du5gcfpuobhoa" path="res://actors/player.tscn" id="3_wu64i"]
 [ext_resource type="Shader" uid="uid://cpa356ed6tsf0" path="res://shaders/movement_clouds.gdshader" id="3_yso3o"]
@@ -176,6 +177,7 @@ pattern_1 = SubResource("TileMapPattern_o58wf")
 pattern_2 = SubResource("TileMapPattern_j8rs1")
 
 [node name="World-01" type="Node2D" unique_id=959870028]
+script = ExtResource("1_samdc")
 
 [node name="BG" type="Node2D" parent="." unique_id=1005337272]
 position = Vector2(-11, -106)
@@ -308,3 +310,14 @@ position = Vector2(496, 280)
 
 [node name="enemy3" parent="." unique_id=1086301916 instance=ExtResource("12_dp75u")]
 position = Vector2(568, 280)
+
+[node name="camera" type="Camera2D" parent="." unique_id=1091356481]
+zoom = Vector2(2, 2)
+limit_left = -39
+limit_bottom = 340
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.3
+editor_draw_drag_margin = true

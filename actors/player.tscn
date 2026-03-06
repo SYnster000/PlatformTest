@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://5ql8o2mykfhy" path="res://assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_esgq3"]
 [ext_resource type="Texture2D" uid="uid://bk5febaaxa32q" path="res://assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="4_kjkj0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_esgq3"]
-size = Vector2(14, 13)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvpqy"]
 atlas = ExtResource("2_1yqc4")
 region = Rect2(0, 0, 32, 32)
@@ -75,24 +72,15 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esgq3"]
+size = Vector2(14, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjkj0"]
+size = Vector2(16, 12)
+
 [node name="player" type="CharacterBody2D" unique_id=1064202981]
-collision_mask = 2
+collision_mask = 22
 script = ExtResource("1_mvpqy")
-
-[node name="collision" type="CollisionShape2D" parent="." unique_id=624703575]
-position = Vector2(0, -6.5)
-shape = SubResource("RectangleShape2D_esgq3")
-
-[node name="camera" type="Camera2D" parent="." unique_id=1986169662]
-zoom = Vector2(2, 2)
-limit_left = -39
-limit_bottom = 340
-limit_smoothed = true
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_top_margin = 0.3
-editor_draw_drag_margin = true
 
 [node name="animator" type="AnimationPlayer" parent="." unique_id=885589879]
 
@@ -101,3 +89,19 @@ position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_naeyk")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=624703575]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_esgq3")
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=438258696]
+collision_layer = 0
+collision_mask = 4
+
+[node name="collision" type="CollisionShape2D" parent="hurtbox" unique_id=1741083642]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_kjkj0")
+
+[node name="remote" type="RemoteTransform2D" parent="." unique_id=791281420]
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
