@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://casyv0ks8s4xq"]
+
+[node name="box-pieces" type="RigidBody2D" unique_id=733968784]

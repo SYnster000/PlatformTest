@@ -6,6 +6,7 @@ const JUMP_FORCE = -400.0
 
 var is_jumping := false
 @export var player_life := 10
+var is_hurted := false
 var knockback_vector := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
@@ -49,7 +50,10 @@ func _physics_process(delta: float) -> void:
 		animation.scale.x = -1
 		
 	
-	if is_jumping:
+		
+	if is_hurted:
+		animation.play("hurt")
+	elif is_jumping:
 		animation.play("jump")
 	elif direction:
 		animation.play("run")
@@ -81,6 +85,10 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 		knockback_tween.parallel().tween_property(self,"knockback_vector",Vector2.ZERO,duration)
 		animation.modulate = Color(1.0, 0.0, 0.0, 1.0)
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
+		
+	is_hurted = true
+	await  get_tree().create_timer(.3).timeout
+	is_hurted = false
 		
 
 

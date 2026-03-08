@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://by7xrewgfekn5" path="res://scripts/player.gd" id="1_mvpqy"]
 [ext_resource type="Texture2D" uid="uid://b1vnk0c6x35s5" path="res://assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="2_1yqc4"]
+[ext_resource type="Texture2D" uid="uid://c75luyhaj265p" path="res://assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Hurt (32 x 32).png" id="2_kjkj0"]
 [ext_resource type="Texture2D" uid="uid://5ql8o2mykfhy" path="res://assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="3_esgq3"]
 [ext_resource type="Texture2D" uid="uid://bk5febaaxa32q" path="res://assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="4_kjkj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkwqa"]
+atlas = ExtResource("2_kjkj0")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvpqy"]
 atlas = ExtResource("2_1yqc4")
@@ -35,6 +40,14 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_naeyk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwqa")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mvpqy")
@@ -87,7 +100,7 @@ script = ExtResource("1_mvpqy")
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=821413893]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_naeyk")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=624703575]

@@ -190,7 +190,7 @@ position = Vector2(-11, -106)
 
 [node name="05" type="Parallax2D" parent="BG" unique_id=907243609]
 repeat_size = Vector2(576, 250)
-repeat_times = 3
+repeat_times = 11
 
 [node name="texture" type="Sprite2D" parent="BG/05" unique_id=430153251]
 scale = Vector2(2, 2)
@@ -200,7 +200,7 @@ centered = false
 [node name="04" type="Parallax2D" parent="BG" unique_id=1013206471]
 scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(576, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="back_clouds" type="Sprite2D" parent="BG/04" unique_id=192755001]
 scale = Vector2(2, 2)
@@ -210,7 +210,7 @@ centered = false
 [node name="03" type="Parallax2D" parent="BG" unique_id=1054958476]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(576, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="clouds" type="Sprite2D" parent="BG/03" unique_id=1772297387]
 texture_repeat = 2
@@ -222,7 +222,7 @@ centered = false
 [node name="02" type="Parallax2D" parent="BG" unique_id=2101134911]
 scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(576, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="texture" type="Sprite2D" parent="BG/02" unique_id=513253362]
 scale = Vector2(2, 2)
@@ -232,7 +232,7 @@ centered = false
 [node name="01" type="Parallax2D" parent="BG" unique_id=2093118290]
 scroll_scale = Vector2(0.9, 1)
 repeat_size = Vector2(576, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="texture" type="Sprite2D" parent="BG/01" unique_id=288757362]
 scale = Vector2(2, 2)
@@ -308,16 +308,18 @@ position = Vector2(936, 272)
 [node name="player" parent="." unique_id=1064202981 instance=ExtResource("3_wu64i")]
 position = Vector2(35, 272)
 
-[node name="enemy" parent="." unique_id=683640417 instance=ExtResource("12_dp75u")]
+[node name="enemies" type="Node2D" parent="." unique_id=1669838290]
+
+[node name="enemy" parent="enemies" unique_id=683640417 instance=ExtResource("12_dp75u")]
 position = Vector2(208, 280)
 
-[node name="enemy2" parent="." unique_id=1704638904 instance=ExtResource("12_dp75u")]
+[node name="enemy2" parent="enemies" unique_id=1704638904 instance=ExtResource("12_dp75u")]
 position = Vector2(496, 280)
 
-[node name="enemy3" parent="." unique_id=1086301916 instance=ExtResource("12_dp75u")]
+[node name="enemy3" parent="enemies" unique_id=1086301916 instance=ExtResource("12_dp75u")]
 position = Vector2(568, 280)
 
-[node name="enemy4" parent="." unique_id=1328326519 instance=ExtResource("12_dp75u")]
+[node name="enemy4" parent="enemies" unique_id=1328326519 instance=ExtResource("12_dp75u")]
 position = Vector2(456, 248)
 
 [node name="camera" type="Camera2D" parent="." unique_id=1091356481]
@@ -334,7 +336,7 @@ editor_draw_drag_margin = true
 [node name="controls" type="CanvasLayer" parent="." unique_id=571513093]
 
 [node name="left" type="TouchScreenButton" parent="controls" unique_id=1697433424]
-position = Vector2(32, 608)
+position = Vector2(56, 584)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("14_dgy4p")
 texture_pressed = ExtResource("15_4qpc8")
@@ -342,7 +344,7 @@ action = "left"
 visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="controls" unique_id=1188225622]
-position = Vector2(152, 608)
+position = Vector2(176, 584)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("16_gin1p")
 texture_pressed = ExtResource("17_athp7")
