@@ -95,3 +95,13 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 func follow_camera(camera):
 	var camera_path = camera.get_path()
 	remote_transform.remote_path = camera_path
+
+
+func _on_head_collider_body_entered(body: Node2D) -> void:
+	if body.has_method("break_sprite"):
+		body.hitpoints -= 1
+		if body.hitpoints < 0:
+			body.break_sprite()
+		else:
+			body.animation_player.play("hit")
+			body.create_coin()

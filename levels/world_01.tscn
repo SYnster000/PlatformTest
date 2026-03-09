@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bhkiv4do3cjs0" path="res://assets/mini_ui_buttons/ui_buttons_arrow_right_PRESSED.png" id="17_athp7"]
 [ext_resource type="Texture2D" uid="uid://ckvnenp6klk5n" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_NORMAL.png" id="18_dl4q8"]
 [ext_resource type="Texture2D" uid="uid://im8hbec072ga" path="res://assets/mini_ui_buttons/ui_buttons_arrow_up_PRESSED.png" id="19_8drao"]
+[ext_resource type="PackedScene" uid="uid://de5s487d27ovt" path="res://prefabs/break_box.tscn" id="20_8drao"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tii1u"]
 shader = ExtResource("3_yso3o")
@@ -358,3 +359,6 @@ texture_normal = ExtResource("18_dl4q8")
 texture_pressed = ExtResource("19_8drao")
 action = "jump"
 visibility_mode = 1
+
+[node name="break-box" parent="." unique_id=1074829202 instance=ExtResource("20_8drao")]
+position = Vector2(72, 216)

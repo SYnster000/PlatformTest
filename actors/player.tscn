@@ -91,16 +91,18 @@ size = Vector2(14, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjkj0"]
 size = Vector2(16, 12)
 
-[node name="player" type="CharacterBody2D" unique_id=1064202981]
-collision_mask = 22
-script = ExtResource("1_mvpqy")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tue77"]
+size = Vector2(14, 4)
 
-[node name="animator" type="AnimationPlayer" parent="." unique_id=885589879]
+[node name="player" type="CharacterBody2D" unique_id=1064202981]
+collision_mask = 86
+script = ExtResource("1_mvpqy")
+player_life = null
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=821413893]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_naeyk")
-animation = &"hurt"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=624703575]
@@ -131,4 +133,13 @@ target_position = Vector2(-4, 0)
 collision_mask = 4
 hit_from_inside = true
 
+[node name="head_collider" type="Area2D" parent="." unique_id=86771984]
+collision_layer = 0
+collision_mask = 64
+
+[node name="head_collision" type="CollisionShape2D" parent="head_collider" unique_id=1564404069]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_tue77")
+
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="head_collider" to="." method="_on_head_collider_body_entered"]

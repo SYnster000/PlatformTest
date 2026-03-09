@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://casyv0ks8s4xq"]
 
+[ext_resource type="Script" uid="uid://cl2yqqwp474mb" path="res://scripts/box_pieces.gd" id="1_li7nh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_li7nh"]
+size = Vector2(8, 8)
+
 [node name="box-pieces" type="RigidBody2D" unique_id=733968784]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_li7nh")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=2103141441]
+
+[node name="notifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=1535609919]
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=5219540]
+shape = SubResource("RectangleShape2D_li7nh")
+
+[connection signal="screen_exited" from="notifier" to="." method="_on_notifier_screen_exited"]
